@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+//#define size 1000000
+using namespace std;
+const int size=1000000;
+int cube[size+1]={0};
+void sieve()
+{
+   // memset(cube,-2,sizeof(cube));
+
+    for(int i=2,k;(k=i*i*i)<=size;++i)
+  //  if(cube[size]==true)
+    {
+        for(int j=k;j<=size;j+=k)
+        cube[j]=-1;
+    }
+for(int i=1,j=1;i<size;i++)
+{
+    if(cube[i]==0)
+    {
+
+      cube[i]=j;
+      j++;
+    }
+}
+}
+int main()
+{
+    sieve();
+ int t;cin>>t;
+
+ int i=1;
+ while(t--)
+ {
+     int n;cin>>n;
+     if(cube[n]==-1)
+        cout<<"Case "<<i<<": Not Cube Free"<<endl;
+        else
+        {
+          cout<<"Case "<<i<<":  "<<cube[n]<<endl;
+        //  j++;
+        }
+       // else cout<<"Case "<<i<<": Not Cube Free"<<endl;
+     i++;
+ }
+}
